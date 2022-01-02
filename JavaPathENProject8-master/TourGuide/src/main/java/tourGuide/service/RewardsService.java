@@ -1,16 +1,15 @@
 package tourGuide.service;
 
-import java.util.List;
-
-import org.springframework.stereotype.Service;
-
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.Location;
 import gpsUtil.location.VisitedLocation;
+import org.springframework.stereotype.Service;
 import rewardCentral.RewardCentral;
 import tourGuide.user.User;
 import tourGuide.user.UserReward;
+
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class RewardsService {
@@ -37,8 +36,10 @@ public class RewardsService {
 	}
 	
 	public void calculateRewards(User user) {
-		List<VisitedLocation> userLocations = user.getVisitedLocations();
-		List<Attraction> attractions = gpsUtil.getAttractions();
+		CopyOnWriteArrayList<VisitedLocation> userLocations = new CopyOnWriteArrayList<>();
+		userLocations.addAll(user.getVisitedLocations());
+		CopyOnWriteArrayList<Attraction> attractions = new CopyOnWriteArrayList<>();
+		attractions.addAll(gpsUtil.getAttractions());
 		
 		for(VisitedLocation visitedLocation : userLocations) {
 			for(Attraction attraction : attractions) {

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TourGuide</a> &gt; <a href="index.source.html" class="el_package">tourGuide.user</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package tourGuide.user;
 
+import gpsUtil.location.VisitedLocation;
+import tripPricer.Provider;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
-
-import gpsUtil.location.VisitedLocation;
-import tripPricer.Provider;
 
 public class User {
 	private final UUID userId;
@@ -30,7 +30,7 @@ public class User {
 	}
 	
 	public String getUserName() {
-<span class="fc" id="L33">		return userName;</span>
+<span class="nc" id="L33">		return userName;</span>
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {
@@ -70,7 +70,7 @@ public class User {
 <span class="nc" id="L70">	}</span>
 	
 	public void addUserReward(UserReward userReward) {
-<span class="pc bpc" id="L73" title="3 of 4 branches missed.">		if(userRewards.stream().filter(r -&gt; !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if(userRewards.stream().noneMatch(r -&gt; r.attraction.attractionName.equals(userReward.attraction.attractionName))) {</span>
 <span class="fc" id="L74">			userRewards.add(userReward);</span>
 		}
 <span class="fc" id="L76">	}</span>

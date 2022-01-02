@@ -1,15 +1,21 @@
 package tourGuide.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.jsoniter.output.JsonStream;
+import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import tourGuide.service.RewardsService;
 import tourGuide.service.TourGuideService;
 import tourGuide.user.User;
 import tripPricer.Provider;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -17,6 +23,8 @@ public class TourGuideController {
 
 	@Autowired
 	TourGuideService tourGuideService;
+	@Autowired
+    RewardsService rewardsService;
 	
     @RequestMapping("/")
     public String index() {
@@ -40,8 +48,39 @@ public class TourGuideController {
         //    Note: Attraction reward points can be gathered from RewardsCentral
     @RequestMapping("/getNearbyAttractions") 
     public String getNearbyAttractions(@RequestParam String userName) {
-    	VisitedLocation visitedLocation = tourGuideService.getUserLocation(getUser(userName));
-    	return JsonStream.serialize(tourGuideService.getNearByAttractions(visitedLocation));
+        User user = tourGuideService.getUser(userName);
+        VisitedLocation visitedLocation = tourGuideService.getUserLocation(user);
+        List<Attraction> fiveNearestAttractions = tourGuideService.getFiveNearByAttractions(user);
+        String jsonString = "";
+    
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+        
+            ArrayNode attractionNode = mapper.createArrayNode();
+            for (Attraction attraction : fiveNearestAttractions) {
+                ObjectNode attractionDataNode = mapper.createObjectNode();
+                attractionDataNode.put("attractionName", attraction.attractionName);
+                attractionDataNode.put("attractionLatitude", attraction.latitude);
+                attractionDataNode.put("attractionLongitude", attraction.longitude);
+                attractionDataNode.put("distanceUserAttraction", rewardsService.getDistance(visitedLocation.location, attraction));
+                attractionDataNode.put("rewardPoints", rewardsService.getRewardPoints(attraction, user));
+                attractionNode.add(attractionDataNode);
+            }
+        
+        
+            ObjectNode usersDataNode = mapper.createObjectNode();
+            usersDataNode.put("usersLatitude", visitedLocation.location.latitude);
+            usersDataNode.put("usersLongitude", visitedLocation.location.longitude);
+        
+            ObjectNode completeNode = mapper.createObjectNode();
+            completeNode.set("user", usersDataNode);
+            completeNode.set("attractions", attractionNode);
+        
+            jsonString = mapper.writeValueAsString(completeNode);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return jsonString;
     }
     
     @RequestMapping("/getRewards") 
@@ -60,8 +99,17 @@ public class TourGuideController {
     	//        "019b04a9-067a-4c76-8817-ee75088c3822": {"longitude":-48.188821,"latitude":74.84371} 
     	//        ...
     	//     }
-    	
-    	return JsonStream.serialize("");
+    
+        HashMap<String, HashMap<String, Double>> currentLocations = new HashMap<>();
+        List<User> userList = tourGuideService.getAllUsers();
+        
+        for (User user : userList){
+            HashMap<String ,Double>location=new HashMap<>();
+            location.put("latitude", user.getLastVisitedLocation().location.latitude);
+            location.put("longitude", user.getLastVisitedLocation().location.longitude);
+            currentLocations.put(String.valueOf(user.getUserId()),location);
+        }
+        return JsonStream.serialize(currentLocations);
     }
     
     @RequestMapping("/getTripDeals")

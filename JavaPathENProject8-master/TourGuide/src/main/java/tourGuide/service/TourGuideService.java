@@ -98,6 +98,30 @@ public class TourGuideService {
 		return nearbyAttractions;
 	}
 	
+	// get 5 attractions, near the user
+	public List<Attraction> getFiveNearByAttractions(User user) {
+		List<Attraction> fiveNearByAttractions = new ArrayList<>();
+		Map<Double, Attraction> attractionsDistances = new HashMap<>();
+		int countAttraction = 0;
+		VisitedLocation visitedLocation = trackUserLocation(user);
+		List<Double> distances = new ArrayList<>();
+		for (Attraction attraction : gpsUtil.getAttractions()) {
+			Double distance = rewardsService.getDistance(attraction, visitedLocation.location);
+			attractionsDistances.put(distance, attraction);
+			distances.add(distance);
+		}
+		distances.sort(Comparator.naturalOrder());
+		
+		for (Double distance : distances) {
+			if (countAttraction <= 4) {
+				fiveNearByAttractions.add(attractionsDistances.get(distance));
+				countAttraction += 1;
+			}
+		}
+		return fiveNearByAttractions;
+	}
+	
+	
 	private void addShutDownHook() {
 		Runtime.getRuntime().addShutdownHook(new Thread() { 
 		      public void run() {

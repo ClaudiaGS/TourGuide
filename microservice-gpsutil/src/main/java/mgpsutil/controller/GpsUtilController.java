@@ -1,9 +1,12 @@
 package mgpsutil.controller;
 
+import com.jsoniter.output.JsonStream;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
-import mgpsutil.UUIDException;
+import mgpsutil.exception.UUIDException;
 import mgpsutil.service.GpsUtilService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +18,8 @@ import java.util.UUID;
 
 @RestController
 public class GpsUtilController {
+    
+    private static final Logger logger = LogManager.getLogger("GpsUtilController");
     
     @Autowired
     GpsUtilService gpsUtilService;
@@ -28,13 +33,17 @@ public class GpsUtilController {
     @GetMapping("/getLocationGpsUtil")
     public VisitedLocation getLocation(@RequestParam String userId) throws UUIDException {
         UUID userIdUuid = null;
+        VisitedLocation visitedLocation=null;
         try {
             userIdUuid = UUID.fromString(userId);
-            VisitedLocation visitedLocation = gpsUtilService.getLocation(userIdUuid);
+            visitedLocation = gpsUtilService.getLocation(userIdUuid);
         } catch (IllegalArgumentException e) {
             throw new UUIDException(userId);
         }
-        return gpsUtilService.getLocation(userIdUuid);
+        
+        logger.info("Location for user with id "+userId+" is "+ JsonStream.serialize(visitedLocation));
+        
+        return visitedLocation;
     }
     
     /**
@@ -51,17 +60,26 @@ public class GpsUtilController {
         } catch (IllegalArgumentException e) {
             throw new UUIDException(userId);
         }
-        return gpsUtilService.getFiveNearByAttractions(userIdUuid);
+        List<Attraction>fiveNearestAttractions=gpsUtilService.getFiveNearByAttractions(userIdUuid);
+        
+        logger.info("Five nearest attractions are "+JsonStream.serialize(fiveNearestAttractions));
+        
+        return fiveNearestAttractions;
     }
     
     /**
      * Get the list of every user's most recent location in an endpoint from the microservice-gpsutil, to supply to the tourguidemodule
      *
+     * @param userIdList
      * @return HashMap<String, HashMap < String, Double>>
      */
     @GetMapping("/getAllCurrentLocationsGpsUtil")
     public HashMap<String, HashMap<String, Double>> getAllCurrentLocations(@RequestParam List<UUID> userIdList) throws UUIDException {
-        return gpsUtilService.getAllCurrentLocations(userIdList);
+        HashMap<String,HashMap<String,Double>> locationsMap=gpsUtilService.getAllCurrentLocations(userIdList);
+        
+        logger.info("Location list of all users is: "+JsonStream.serialize(locationsMap));
+        
+        return locationsMap;
     }
     
     /**
@@ -71,7 +89,11 @@ public class GpsUtilController {
      */
     @GetMapping("/getAttractionsGpsUtil")
     public List<Attraction> getAttractions() {
-        return gpsUtilService.getAttractions();
+        List<Attraction>attractions=gpsUtilService.getAttractions();
+        
+        logger.info("Attraction list is :"+attractions);
+        
+        return attractions;
     }
     
     

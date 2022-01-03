@@ -10,8 +10,6 @@ import com.example.tourguidemodule.service.RewardsService;
 import com.example.tourguidemodule.service.TourGuideService;
 import com.example.tourguidemodule.user.User;
 import org.apache.commons.lang3.time.StopWatch;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 
 public class TestPerformance {
-    private static final Logger logger = LogManager.getLogger("TestService");
+  
     /*
      * A note on performance improvements:
      *
@@ -95,7 +93,6 @@ public class TestPerformance {
         TourGuideService tourGuideService = new TourGuideService(gpsUtil, helperService, rewardsService);
         
         AttractionBean attraction = gpsUtil.getAttractions().get(0);
-        logger.info("attraction " + attraction.attractionName);
         List<User> allUsers = tourGuideService.getAllUsers();
         
         List<CompletableFuture> lCompletable = new ArrayList<>();
@@ -105,7 +102,6 @@ public class TestPerformance {
             CompletableFuture completable = CompletableFuture.runAsync(
                     () -> {
                         user.addToVisitedLocations(new VisitedLocationBean(user.getUserId(), attraction, new Date()));
-                        logger.info("user " + user.getUserName());
                         rewardsService.calculateRewards(user);
                     }
                     , executor);

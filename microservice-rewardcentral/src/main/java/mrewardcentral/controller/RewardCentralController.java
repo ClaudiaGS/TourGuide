@@ -1,7 +1,9 @@
 package mrewardcentral.controller;
 
-import mrewardcentral.UUIDException;
+import mrewardcentral.exception.UUIDException;
 import mrewardcentral.service.RewardCentralService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,14 +14,17 @@ import java.util.UUID;
 @RestController
 public class RewardCentralController {
     
+    private static final Logger logger = LogManager.getLogger("RewardCentralController");
+    
     @Autowired
     RewardCentralService rewardCentralService;
     
     /**
      *
      * Get the reward points endpoint from the microservice-rewardcentral, to supply to the tourguidemodule
+     * @param attractionId
      * @param userId
-     * @return VisitedLocation
+     * @return int
      *
      */
     @GetMapping("/getRewardPoints")
@@ -33,7 +38,11 @@ public class RewardCentralController {
             throw new UUIDException(userId,attractionId);
             
         }
-        return rewardCentralService.getRewardPoints(attractionIdUuid, userIdUuid);
+        int rewardPoints=rewardCentralService.getRewardPoints(attractionIdUuid, userIdUuid);
+        
+        logger.info("Reward points for user with id "+userId+" and attraction with id "+attractionId+" are "+rewardPoints);
+        
+        return rewardPoints;
     }
     
 }

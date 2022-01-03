@@ -10,11 +10,8 @@ import com.example.tourguidemodule.proxy.TripPricerProxy;
 import com.example.tourguidemodule.service.HelperService;
 import com.example.tourguidemodule.service.RewardsService;
 import com.example.tourguidemodule.service.TourGuideService;
-import com.example.tourguidemodule.service.UserService;
 import com.example.tourguidemodule.user.User;
 import com.jsoniter.output.JsonStream;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -51,7 +48,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = TourGuideModuleController.class)
 public class TestTourGuideModuleController {
-    private static final Logger logger = LogManager.getLogger("TestTourGuideModuleController");
+    
     @Autowired
     MockMvc mvc;
     @MockBean
@@ -62,9 +59,6 @@ public class TestTourGuideModuleController {
     
     @MockBean
     TripPricerProxy tripPricerProxy;
-    
-    @MockBean
-    UserService userService;
     
     @MockBean
     HelperService helperService;
@@ -109,26 +103,6 @@ public class TestTourGuideModuleController {
         }
         
     }
-//
-//    @Test
-//    public void getRewardsTest(){
-//        UUID userId = UUID.randomUUID();
-//        String userName="initialUser1";
-//        User user=new User(userId,userName,"123","email@tourguide");
-//        List<UserReward> rewardList=new ArrayList<>();
-//
-//        try {
-//            when(userService.getUserRewards(user)).thenReturn(rewardList);
-//            this.mvc.perform(MockMvcRequestBuilders
-//                    .get("/getRewards")
-//                    .param(userName)
-//                    .contentType(MediaType.APPLICATION_JSON))
-//                    .andExpect(status().isOk());
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
     
     @Test
     public void getAllCurrentlocationsTest() {
@@ -170,7 +144,6 @@ public class TestTourGuideModuleController {
                     .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andReturn();
-            logger.info("result " + result.getResponse().getContentAsString());
             
             //assertion with MockMvc
             assertEquals(JsonStream.serialize(currentLocations), result.getResponse().getContentAsString());

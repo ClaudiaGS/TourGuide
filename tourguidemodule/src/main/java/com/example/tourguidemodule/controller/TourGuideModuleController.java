@@ -9,7 +9,6 @@ import com.example.tourguidemodule.proxy.TripPricerProxy;
 import com.example.tourguidemodule.service.HelperService;
 import com.example.tourguidemodule.service.RewardsService;
 import com.example.tourguidemodule.service.TourGuideService;
-import com.example.tourguidemodule.service.UserService;
 import com.example.tourguidemodule.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -30,6 +29,7 @@ import java.util.UUID;
 public class TourGuideModuleController {
     
     private static final Logger logger = LogManager.getLogger("TourGuideModuleController");
+    
     @Autowired
     GpsUtilProxy gpsUtilProxy;
     @Autowired
@@ -37,29 +37,36 @@ public class TourGuideModuleController {
     @Autowired
     TripPricerProxy tripPricerProxy;
     @Autowired
-    UserService userService;
-    @Autowired
     HelperService helperService;
     @Autowired
     TourGuideService tourGuideService;
     @Autowired
     RewardsService rewardsService;
     
-    
+    /**
+     * Get the location of an user, calling microservice-gpsutil
+     *
+     * @param userName
+     * @return String
+     */
     @RequestMapping("/getLocation")
     public String getLocation(@RequestParam String userName) {
         logger.info("getting location for user " + userName);
         return JsonStream.serialize(gpsUtilProxy.getLocation(tourGuideService.getUser(userName).getUserId().toString()));
     }
     
+    /**
+     * Get five nearest attractions, calling microservice-gpsutil and microservice-rewardcentral
+     *
+     * @param userName
+     * @return String
+     */
     @RequestMapping("/getNearbyAttractions")
     public String getNearbyAttractions(@RequestParam String userName) {
         User user = tourGuideService.getUser(userName);
-        
         VisitedLocationBean visitedLocationBean = tourGuideService.trackUserLocation(user);
-        
         List<AttractionBean> fiveNearestAttractions = gpsUtilProxy.getFiveNearByAttractions(user.getUserId().toString());
-        logger.info("fivenearestattractions " + fiveNearestAttractions.toString());
+        
         String jsonString = "";
         
         try {
@@ -91,7 +98,11 @@ public class TourGuideModuleController {
         return jsonString;
     }
     
-    
+    /**
+     * Get locations of all users, calling microservice-gpsutil
+     *
+     * @return String
+     */
     @RequestMapping("/getAllCurrentLocations")
     public String getAllCurrentLocations() {
         List<User> userList = tourGuideService.getAllUsers();
@@ -102,13 +113,25 @@ public class TourGuideModuleController {
         return JsonStream.serialize(gpsUtilProxy.getAllCurrentLocations(userIdList));
     }
     
+    /**
+     * Get user rewards
+     *
+     * @param userName
+     * @return String
+     */
     @RequestMapping("/getRewards")
     public String getRewards(@RequestParam String userName) {
         User user = tourGuideService.getUser(userName);
         logger.info("user in get rewards is " + user.getUserRewards());
-        return JsonStream.serialize(userService.getUserRewards(user));
+        return JsonStream.serialize(tourGuideService.getUserRewards(user));
     }
     
+    /**
+     * Get trip deals for user, calling microservice-trippricer
+     *
+     * @param userName
+     * @return String
+     */
     @RequestMapping("/getTripDeals")
     public String getTripDeals(@RequestParam String userName) {
         User user = tourGuideService.getUser(userName);

@@ -10,6 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class GpsUtilBean {
+    
     private static final RateLimiter rateLimiter = RateLimiter.create(1000.0D);
     
     public GpsUtilBean() {

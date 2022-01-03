@@ -9,21 +9,23 @@ import java.util.UUID;
 
 @Service
 public class RewardCentralService {
+    
     private static final Logger logger = LogManager.getLogger("RewardCentralService");
-    RewardCentral rewardCentral=new RewardCentral();
+    
+    RewardCentral rewardCentral = new RewardCentral();
     
     /**
-     *
      * Get the reward points
+     *
      * @param attractionId
      * @param userId
      * @return int
-     *
      */
     public int getRewardPoints(UUID attractionId, UUID userId) {
-        logger.info("getRewardPoints in mrewardcentral for attraction with id "+attractionId+" and user with id "+userId);
-        return rewardCentral.getAttractionRewardPoints(attractionId,userId);
+        
+        logger.info("Getting reward points for attraction with id " + attractionId + " and user with id " + userId);
+        
+        return rewardCentral.getAttractionRewardPoints(attractionId, userId);
     }
-    
     
 }

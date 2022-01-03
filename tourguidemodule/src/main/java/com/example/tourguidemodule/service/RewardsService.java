@@ -1,14 +1,20 @@
 package com.example.tourguidemodule.service;
 
-import org.springframework.stereotype.Service;
 import com.example.tourguidemodule.beans.*;
 import com.example.tourguidemodule.user.User;
 import com.example.tourguidemodule.user.UserReward;
+import com.jsoniter.output.JsonStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class RewardsService {
+    
+    private static final Logger logger = LogManager.getLogger("RewardsService");
+    
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
     
     // proximity in miles
@@ -20,21 +26,39 @@ public class RewardsService {
     
     private int attractionProximityRange = 200;
     
+    /**
+     * Constructor
+     *
+     * @param gpsUtilBean
+     * @param rewardCentralBean
+     *
+     */
     public RewardsService(GpsUtilBean gpsUtilBean, RewardCentralBean rewardCentralBean) {
         this.gpsUtilBean = gpsUtilBean;
         this.rewardCentralBean = rewardCentralBean;
     }
     
-    
+    /**
+     * Set proximity
+     *
+     * @param proximityBuffer
+     * @return void
+     */
     public void setProximityBuffer(int proximityBuffer) {
+        logger.info("Proximity buffer is "+proximityBuffer);
         this.proximityBuffer = proximityBuffer;
     }
-
-    public void setDefaultProximityBuffer() {
-        proximityBuffer = defaultProximityBuffer;
-    }
     
+    /**
+     * Get the rewards for an user
+     *
+     * @param user
+     * @return void
+     */
     public void calculateRewards(User user) {
+        
+        logger.info("Calculating rewards for user " + JsonStream.serialize(user));
+        
         CopyOnWriteArrayList<VisitedLocationBean> userLocations = new CopyOnWriteArrayList<>();
         userLocations.addAll(user.getVisitedLocations());
         CopyOnWriteArrayList<AttractionBean> attractions = new CopyOnWriteArrayList<>();
@@ -52,18 +76,46 @@ public class RewardsService {
     }
     
     
+    /**
+     * Check if the attraction is near a location
+     *
+     * @param visitedLocationBean
+     * @param attractionBean
+     * @return boolean
+     */
     private boolean nearAttraction(VisitedLocationBean visitedLocationBean, AttractionBean attractionBean) {
         return getDistance(attractionBean, visitedLocationBean.locationBean) > proximityBuffer ? false : true;
     }
     
+    /**
+     * Check if location is within attraction proximity
+     *
+     * @param locationBean
+     * @param attractionBean
+     * @return boolean
+     */
     public boolean isWithinAttractionProximity(AttractionBean attractionBean, LocationBean locationBean) {
         return getDistance(attractionBean, locationBean) > attractionProximityRange ? false : true;
     }
     
+    /**
+     * Get the reward points
+     *
+     * @param user
+     * @param attractionBean
+     * @return int
+     */
     public int getRewardPoints(AttractionBean attractionBean, User user) {
         return rewardCentralBean.getAttractionRewardPoints(attractionBean.attractionId, user.getUserId());
     }
     
+    /**
+     * Get distance between 2 locations
+     *
+     * @param loc1
+     * @param loc2
+     * @return double
+     */
     public double getDistance(LocationBean loc1, LocationBean loc2) {
         double lat1 = Math.toRadians(loc1.latitude);
         double lon1 = Math.toRadians(loc1.longitude);
@@ -77,7 +129,4 @@ public class RewardsService {
         double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;
         return statuteMiles;
     }
-//
-
-
 }

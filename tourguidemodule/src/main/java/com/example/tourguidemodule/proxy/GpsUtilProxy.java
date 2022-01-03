@@ -11,21 +11,32 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Declare the microservice endpoint
+ * Declare the microservice-gpsutil endpoint
  */
 @FeignClient(name = "microservice-gpsutil", url = "localhost:9001")
 public interface GpsUtilProxy {
     
+    /**
+     * @see mgpsutil.controller
+     */
     @GetMapping(value = "/getLocationGpsUtil")
     VisitedLocationBean getLocation(@RequestParam("userId") String userId);
- 
+    
+    /**
+     * @see mgpsutil.controller
+     */
     @GetMapping(value = "/getFiveNearByAttractionsGpsUtil")
     List<AttractionBean> getFiveNearByAttractions(@RequestParam("userId") String userId);
     
+    /**
+     * @see mgpsutil.controller
+     */
     @GetMapping(value = "/getAllCurrentLocationsGpsUtil")
     HashMap<String, HashMap<String, Double>> getAllCurrentLocations(@RequestParam("userIdList") List<UUID> userIdList);
     
-    
+    /**
+     * @see mgpsutil.controller
+     */
     @GetMapping("/getAttractionsGpsUtil")
     List<AttractionBean> getAttractions();
 }

@@ -5,6 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class RewardCentralBean {
+    
     public RewardCentralBean() {
     }
     

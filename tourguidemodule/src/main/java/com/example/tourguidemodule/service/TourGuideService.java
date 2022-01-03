@@ -5,9 +5,10 @@ import com.example.tourguidemodule.beans.GpsUtilBean;
 import com.example.tourguidemodule.beans.VisitedLocationBean;
 import com.example.tourguidemodule.tracker.Tracker;
 import com.example.tourguidemodule.user.User;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.tourguidemodule.user.UserReward;
+import com.jsoniter.output.JsonStream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,22 +16,24 @@ import java.util.stream.Collectors;
 
 @Service
 public class TourGuideService {
-    private Logger logger = LoggerFactory.getLogger(TourGuideService.class);
-    @Autowired
-    private GpsUtilBean gpsUtilBean;
-    @Autowired
-    private RewardsService rewardsService;
-    //@Autowired
-  //  private TripPricerBean tripPricerBean;
-
     
-    @Autowired
-    HelperService helperService;
+    private static final Logger logger = LogManager.getLogger("TourGuideService");
+    
+    private GpsUtilBean gpsUtilBean;
+    private RewardsService rewardsService;
+    private HelperService helperService;
     
     public final Tracker tracker;
     boolean testMode = true;
-    
-    
+    /**
+     *
+     * TourGuideService constructor
+     *
+     * @param gpsUtilBean
+     * @param helperService
+     * @param rewardsService
+     *
+     */
     public TourGuideService(GpsUtilBean gpsUtilBean,HelperService helperService, RewardsService rewardsService) {
         this.gpsUtilBean = gpsUtilBean;
         this.helperService=helperService;
@@ -47,16 +50,36 @@ public class TourGuideService {
         addShutDownHook();
     }
     
+    /**
+     * Get user data for given user name
+     *
+     * @param userName
+     *
+     * @return User
+     */
     public User getUser(String userName) {
+        logger.info("Getting user with name "+userName);
         return helperService.internalUserMap.get(userName);
     }
     
+    /**
+     * Get a list of all users
+     *
+     * @return List<User>
+     */
     public List<User> getAllUsers() {
-        
+        logger.info("Getting user list");
         return helperService.internalUserMap.values().stream().collect(Collectors.toList());
     }
     
+    /**
+     * Add an user
+     *
+     * @param user
+     * @return User
+     */
     public User addUser(User user) {
+        logger.info("Adding user "+ JsonStream.serialize(user));
         boolean done = false;
         if (!helperService.internalUserMap.containsKey(user.getUserName())) {
             helperService.internalUserMap.put(user.getUserName(), user);
@@ -66,73 +89,40 @@ public class TourGuideService {
             return user;
         } else return null;
     }
-//
-//
-//    public VisitedLocation getUserLocation(User user) {
-//        VisitedLocation visitedLocation = (user.getVisitedLocations().size() > 0) ?
-//                user.getLastVisitedLocation() :
-//                trackUserLocation(user);
-//        return visitedLocation;
-//    }
-
-
-//    public List<ProviderBean> getTripDeals(User user) {
-//        int cumulatativeRewardPoints = user.getUserRewards().stream().mapToInt(i -> i.getRewardPoints()).sum();
-//        List<ProviderBean> providers = tripPricer.getPrice(tripPricerApiKey, user.getUserId(), user.getUserPreferences().getNumberOfAdults(),
-//                user.getUserPreferences().getNumberOfChildren(), user.getUserPreferences().getTripDuration(), cumulatativeRewardPoints);
-//        user.setTripDeals(providers);
-//        return providers;
-//    }
-//    public VisitedLocationBean trackUserLocation(User user) {
-//        VisitedLocationBean visitedLocation = gpsUtil.getUserLocation(user.getUserId());
-//        user.addToVisitedLocations(visitedLocation);
-//        rewardsService.calculateRewards(user);
-//        return visitedLocation;
-//    }
     
+    /**
+     * Track location of an user
+     *
+     * @param user
+     *
+     * @return VisitedLocationBean
+     */
     public VisitedLocationBean trackUserLocation(User user) {
+        logger.info("Tracking location for user "+JsonStream.serialize(user));
         VisitedLocationBean visitedLocationBean = gpsUtilBean.getUserLocation(user.getUserId());
         user.addToVisitedLocations(visitedLocationBean);
         rewardsService.calculateRewards(user);
         return visitedLocationBean;
     }
-  
-//
-//    public List<AttractionBean> getNearByAttractions(VisitedLocationBean visitedLocationBean) {
-//        List<AttractionBean> nearbyAttractions = new ArrayList<>();
-//        for (AttractionBean attractionBean : gpsUtilBean.getAttractions()) {
-//            if (rewardsService.isWithinAttractionProximity(attractionBean, visitedLocationBean.locationBean)) {
-//                nearbyAttractions.add(attraction);
-//            }
-//        }
-//
-//        return nearbyAttractions;
-//    }
-
-//    // get 5 attractions, near the user
-//    public List<Attraction> getFiveNearByAttractions(User user) {
-//        List<Attraction> fiveNearByAttractions = new ArrayList<>();
-//        Map<Double, Attraction> attractionsDistances = new HashMap<>();
-//        int countAttraction = 0;
-//        VisitedLocation visitedLocation = trackUserLocation(user);
-//        List<Double> distances = new ArrayList<>();
-//        for (Attraction attraction : gpsUtil.getAttractions()) {
-//            Double distance = rewardsService.getDistance(attraction, visitedLocation.location);
-//            attractionsDistances.put(distance, attraction);
-//            distances.add(distance);
-//        }
-//        distances.sort(Comparator.naturalOrder());
-//
-//        for (Double distance : distances) {
-//            if (countAttraction <= 4) {
-//                fiveNearByAttractions.add(attractionsDistances.get(distance));
-//                countAttraction += 1;
-//            }
-//        }
-//        return fiveNearByAttractions;
-//    }
     
+    /**
+     * Get reward list for user
+     *
+     * @param user
+     * @return List<UserReward>
+     */
+    public List<UserReward> getUserRewards(User user) {
+        logger.info("Getting reward list for user "+JsonStream.serialize(user));
+        return user.getUserRewards();
+    }
+    
+    /**
+     * Stop tracking user location
+     *
+     * @return void
+     */
     private void addShutDownHook() {
+        logger.info("Stop tracking location");
         Runtime.getRuntime().addShutdownHook(new Thread() {
             public void run() {
                 tracker.stopTracking();
@@ -140,52 +130,6 @@ public class TourGuideService {
         });
     }
     
-//
-//    /**********************************************************************************
-//     *
-//     * Methods Below: For Internal Testing
-//     *
-//     **********************************************************************************/
-//    public static final String tripPricerApiKey = "test-server-api-key";
-//    // Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
-//    private final Map<String, User> internalUserMap = new HashMap<>();
-//
-//    private void initializeInternalUsers() {
-//        IntStream.range(0, InternalTestHelper.getInternalUserNumber()).forEach(i -> {
-//            String userName = "internalUser" + i;
-//            String phone = "000";
-//            String email = userName + "@tourGuide.com";
-//            User user = new User(UUID.randomUUID(), userName, phone, email);
-//            generateUserLocationHistory(user);
-//
-//            internalUserMap.put(userName, user);
-//        });
-//        logger.debug("Created " + InternalTestHelper.getInternalUserNumber() + " internal test users.");
-//    }
-//
-//    private void generateUserLocationHistory(User user) {
-//        IntStream.range(0, 3).forEach(i -> {
-//            user.addToVisitedLocations(new VisitedLocationBean(user.getUserId(), new LocationBean(generateRandomLatitude(), generateRandomLongitude()), getRandomTime()));
-//        });
-//    }
-//
-//    private double generateRandomLongitude() {
-//        double leftLimit = -180;
-//        double rightLimit = 180;
-//        return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
-//    }
-//
-//    private double generateRandomLatitude() {
-//        double leftLimit = -85.05112878;
-//        double rightLimit = 85.05112878;
-//        return leftLimit + new Random().nextDouble() * (rightLimit - leftLimit);
-//    }
-//
-//    private Date getRandomTime() {
-//        LocalDateTime localDateTime = LocalDateTime.now().minusDays(new Random().nextInt(30));
-//        return Date.from(localDateTime.toInstant(ZoneOffset.UTC));
-//    }
-//
 }
 
 

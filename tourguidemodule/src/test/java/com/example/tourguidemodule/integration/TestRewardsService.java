@@ -8,11 +8,8 @@ import com.example.tourguidemodule.helper.InternalTestHelper;
 import com.example.tourguidemodule.service.HelperService;
 import com.example.tourguidemodule.service.RewardsService;
 import com.example.tourguidemodule.service.TourGuideService;
-import com.example.tourguidemodule.service.UserService;
 import com.example.tourguidemodule.user.User;
 import com.example.tourguidemodule.user.UserReward;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 import java.util.Date;
@@ -23,7 +20,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class TestRewardsService {
-    private static final Logger logger = LogManager.getLogger("TestRewardsService");
     
     @Test
     public void userGetRewards() {
@@ -61,8 +57,7 @@ public class TestRewardsService {
         HelperService helperService = new HelperService();
         TourGuideService tourGuideService = new TourGuideService(gpsUtil, helperService,rewardsService);
         rewardsService.calculateRewards(tourGuideService.getAllUsers().get(0));
-        UserService userService=new UserService();
-        List<UserReward> userRewards = userService.getUserRewards(tourGuideService.getAllUsers().get(0));
+        List<UserReward> userRewards = tourGuideService.getUserRewards(tourGuideService.getAllUsers().get(0));
         assertEquals(gpsUtil.getAttractions().size(), userRewards.size());
         tourGuideService.tracker.stopTracking();
     }

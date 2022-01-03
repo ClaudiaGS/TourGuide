@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.tourguidemodule.service.TourGuideService;
-import com.example.tourguidemodule.service.UserService;
 import com.example.tourguidemodule.user.User;
 
 import java.util.List;

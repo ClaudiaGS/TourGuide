@@ -1,11 +1,10 @@
 package com.example.tourguidemodule.tracker;
 
+import com.example.tourguidemodule.service.TourGuideService;
+import com.example.tourguidemodule.user.User;
 import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.example.tourguidemodule.service.TourGuideService;
-import com.example.tourguidemodule.user.User;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -18,8 +17,7 @@ public class Tracker extends Thread {
 	private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 	private final TourGuideService tourGuideService;
 	private boolean stop = false;
-@Autowired
-	UserService userService;
+
 	public Tracker(TourGuideService tourGuideService) {
 		this.tourGuideService = tourGuideService;
 		

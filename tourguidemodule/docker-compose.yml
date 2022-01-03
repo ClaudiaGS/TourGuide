@@ -1,0 +1,29 @@
+version: '1'
+services:
+  mgpsutil:
+    image: mgpsutil:latest
+    networks:
+      - tourguide-network
+  mrewardcentral:
+    image: mrewardcentral:latest
+    networks:
+      - tourguide-network
+
+  mtrippricer:
+    image: mtrippricer:latest
+    networks:
+      - tourguide-network
+  tourguidemodule:
+    image: tourguidemodule:latest
+    ports:
+      - 8080:8080
+    depends_on:
+        - mgpsutil
+        - mrewardcentral
+        - mtrippricer
+    networks:
+      - tourguide-network
+
+networks:
+  tourguide-network:
+    driver: bridge

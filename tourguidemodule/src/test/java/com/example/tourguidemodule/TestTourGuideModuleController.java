@@ -31,19 +31,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
-//@AutoConfigureMockMvc(addFilters = false)
-//@ExtendWith(SpringExtension.class)
-//@SpringBootTest(classes = )
-//@EnableWebMvc
-
-//@AutoConfigureMockMvc
-//@EnableWebMvc
-//@SpringBootTest(classes = TourGuideModuleController.class)
-//@ContextConfiguration(TestTourGuideModuleController.class)
-////@AutoConfigureMockMvc
-//@RunWith(SpringRunner.class)
-//@SpringBootTest(classes = TourGuideModuleController.class)
 @AutoConfigureMockMvc(addFilters = false)
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = TourGuideModuleController.class)

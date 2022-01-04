@@ -6,7 +6,6 @@ import com.example.tourguidemodule.beans.VisitedLocationBean;
 import com.example.tourguidemodule.tracker.Tracker;
 import com.example.tourguidemodule.user.User;
 import com.example.tourguidemodule.user.UserReward;
-import com.jsoniter.output.JsonStream;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -79,7 +78,7 @@ public class TourGuideService {
      * @return User
      */
     public User addUser(User user) {
-        logger.info("Adding user "+ JsonStream.serialize(user));
+        logger.info("Adding user "+ user.getUserName());
         boolean done = false;
         if (!helperService.internalUserMap.containsKey(user.getUserName())) {
             helperService.internalUserMap.put(user.getUserName(), user);
@@ -98,7 +97,7 @@ public class TourGuideService {
      * @return VisitedLocationBean
      */
     public VisitedLocationBean trackUserLocation(User user) {
-        logger.info("Tracking location for user "+JsonStream.serialize(user));
+        logger.info("Tracking location for user "+user.getUserName());
         VisitedLocationBean visitedLocationBean = gpsUtilBean.getUserLocation(user.getUserId());
         user.addToVisitedLocations(visitedLocationBean);
         rewardsService.calculateRewards(user);
@@ -112,7 +111,7 @@ public class TourGuideService {
      * @return List<UserReward>
      */
     public List<UserReward> getUserRewards(User user) {
-        logger.info("Getting reward list for user "+JsonStream.serialize(user));
+        logger.info("Getting reward list for user "+user.getUserName());
         return user.getUserRewards();
     }
     

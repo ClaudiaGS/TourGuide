@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b20afb44-2bb5-4130-89a0-37c785c6e2a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/tracker/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/tracker/Tracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestTourGuideModuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestTourGuideModuleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/configuration/GpsUtilMocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/configuration/GpsUtilMocks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/GpsUtilProxyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/GpsUtilProxyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/RewardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/RewardsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/TourGuideService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/TourGuideService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/TestTourGuideService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/TestTourGuideService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +50,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/microservice-gpsutil" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.21444444" />
     <property name="project.structure.side.proportion" value="0.15174508" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -65,59 +64,7 @@
       <recent name="F:\OPENCLASSROOMS\PROJET 8\TourGuideGit\tourguidemodule\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.GpsUtilProxyTest.getLocationGpsUtilProxy">
-    <configuration name="MGpsUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mgpsutil.MGpsUtil" />
-      <module name="mgpsutil.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mgpsutil.exception.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MRewardCentral" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mrewardcentral.MRewardCentral" />
-      <module name="mrewardcentral.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mrewardcentral.exception.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MTripPricer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mtrippricer.MTripPricer" />
-      <module name="mtrippricer.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mtrippricer.exception.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TourguidemoduleApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.tourguidemodule.TourguidemoduleApplication" />
-      <module name="tourguidemodule.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.tourguidemodule.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.TestTourGuideService.getAllUsers">
     <configuration name="GpsUtilProxyTest.getLocationGpsUtilProxy" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -139,13 +86,97 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TestTourGuideService" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.tourguidemodule.integration.TestTourGuideService&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTourGuideService.addUser" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.tourguidemodule.integration.TestTourGuideService.addUser&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTourGuideService.getAllUsers" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.tourguidemodule.integration.TestTourGuideService.getAllUsers&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestTourGuideService.getUserLocation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.tourguidemodule.integration.TestTourGuideService.getUserLocation&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestTourGuideService.getAllUsers" />
+        <item itemvalue="Gradle.TestTourGuideService.addUser" />
+        <item itemvalue="Gradle.TestTourGuideService.getUserLocation" />
+        <item itemvalue="Gradle.TestTourGuideService" />
         <item itemvalue="Gradle.GpsUtilProxyTest.getLocationGpsUtilProxy" />
-        <item itemvalue="Application.TourguidemoduleApplication" />
-        <item itemvalue="Application.MTripPricer" />
-        <item itemvalue="Application.MRewardCentral" />
-        <item itemvalue="Application.MGpsUtil" />
       </list>
     </recent_temporary>
   </component>

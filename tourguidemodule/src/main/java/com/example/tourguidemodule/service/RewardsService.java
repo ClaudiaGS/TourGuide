@@ -3,7 +3,6 @@ package com.example.tourguidemodule.service;
 import com.example.tourguidemodule.beans.*;
 import com.example.tourguidemodule.user.User;
 import com.example.tourguidemodule.user.UserReward;
-import com.jsoniter.output.JsonStream;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -57,7 +56,7 @@ public class RewardsService {
      */
     public void calculateRewards(User user) {
         
-        logger.info("Calculating rewards for user " + JsonStream.serialize(user));
+        logger.info("Calculating rewards for user " + user.getUserName());
         
         CopyOnWriteArrayList<VisitedLocationBean> userLocations = new CopyOnWriteArrayList<>();
         userLocations.addAll(user.getVisitedLocations());

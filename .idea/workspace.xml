@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b20afb44-2bb5-4130-89a0-37c785c6e2a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gpsUtil.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mtrippricer_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mtrippricer_1_0_0__2_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/build/classes/java/main/mgpsutil/UUIDException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/build/classes/java/main/mgpsutil/controller/GpsUtilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/build/classes/java/main/mgpsutil/controller/GpsUtilController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/build/classes/java/main/mgpsutil/service/GpsUtilService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/build/classes/java/main/mgpsutil/service/GpsUtilService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/src/main/java/mgpsutil/controller/GpsUtilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/src/main/java/mgpsutil/controller/GpsUtilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/src/main/java/mgpsutil/service/GpsUtilService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-gpsutil/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-gpsutil/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/build/classes/java/main/mrewardcentral/UUIDException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/build/classes/java/main/mrewardcentral/controller/RewardCentralController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/build/classes/java/main/mrewardcentral/controller/RewardCentralController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/build/classes/java/main/mrewardcentral/service/RewardCentralService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/build/classes/java/main/mrewardcentral/service/RewardCentralService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-rewardcentral/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-rewardcentral/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/.gradle/4.8.1/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/build/classes/java/main/mtrippricer/UUIDException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/build/classes/java/main/mtrippricer/controller/TripPricerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/build/classes/java/main/mtrippricer/controller/TripPricerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/build/classes/java/main/mtrippricer/service/TripPricerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/build/classes/java/main/mtrippricer/service/TripPricerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/build/libs/mtrippricer-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/src/main/java/mtrippricer/service/TripPricerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/src/main/java/mtrippricer/service/TripPricerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservice-trippricer/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/microservice-trippricer/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/TourguidemoduleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/TourguidemoduleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/controller/TourGuideModuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/controller/TourGuideModuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/errorhandling/CustomErrorDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/errorhandling/CustomErrorDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/errorhandling/ProductBadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/errorhandling/BadRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/proxy/GpsUtilProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/proxy/GpsUtilProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/RewardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/RewardsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/TourGuideService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/service/TourGuideService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/tracker/Tracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/java/com/example/tourguidemodule/tracker/Tracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestTourGuideModuleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestTourGuideModuleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/configuration/GpsUtilMocks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/configuration/WireMockConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/GpsUtilProxyTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/TestPerformance.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestPerformance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/TestRewardsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestRewardsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/integration/TestTourGuideService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tourguidemodule/src/test/java/com/example/tourguidemodule/TestTourGuideService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/microservice-gpsutil">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/microservice-rewardcentral">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/microservice-trippricer">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/tourguidemodule">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/tourguidemodule">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="239DNPbP3GtrNCHz93AFBGqIWrh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservice-gpsutil" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.21444444" />
+    <property name="project.structure.side.proportion" value="0.20709223" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\OPENCLASSROOMS\PROJET 8\TourGuideGit\microservice-gpsutil" />
+      <recent name="F:\OPENCLASSROOMS\PROJET 8\TourGuideGit\microservice-rewardcentral" />
+      <recent name="F:\OPENCLASSROOMS\PROJET 8\TourGuideGit\microservice-trippricer" />
+      <recent name="F:\OPENCLASSROOMS\PROJET 8\TourGuideGit\tourguidemodule" />
+      <recent name="F:\OPENCLASSROOMS\PROJET 8\TourGuideGit\tourguidemodule\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mgpsutil.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.Tests in 'com.example.tourguidemodule'">
+    <configuration name="MTripPricer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mtrippricer.MTripPricer" />
+      <module name="mtrippricer.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mtrippricer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourguidemoduleApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.tourguidemodule.TourguidemoduleApplication" />
+      <module name="tourguidemodule.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.tourguidemodule.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestTourGuideService.modifyUserPreferences" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.tourguidemodule.TestTourGuideService.modifyUserPreferences&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'com.example.tourguidemodule'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.tourguidemodule.*&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="mtrippricer-1.0.0.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/microservice-trippricer/build/libs/mtrippricer-1.0.0.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Tests in 'com.example.tourguidemodule'" />
+        <item itemvalue="Gradle.TestTourGuideService.modifyUserPreferences" />
+        <item itemvalue="JAR Application.mtrippricer-1.0.0.jar" />
+        <item itemvalue="Application.TourguidemoduleApplication" />
+        <item itemvalue="Application.MTripPricer" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b20afb44-2bb5-4130-89a0-37c785c6e2a6" name="Default Changelist" comment="" />
+      <created>1641137368768</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641137368768</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/JavaPathENProject8-master/TourGuide" />
-        <option name="gradleJvm" value="corretto-1.8" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/microservice-gpsutil" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/JavaPathENProject8-master/TourGuide" />
+            <option value="$PROJECT_DIR$/microservice-gpsutil" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/microservice-rewardcentral" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/microservice-rewardcentral" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/microservice-trippricer" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/microservice-trippricer" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/tourguidemodule" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/tourguidemodule" />
           </set>
         </option>
       </GradleProjectSettings>

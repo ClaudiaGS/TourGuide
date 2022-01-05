@@ -11,7 +11,7 @@ public class CustomErrorDecoder implements ErrorDecoder {
     public Exception decode(String invoqueur, Response reponse) {
 
         if(reponse.status() == 400 ) {
-            return new ProductBadRequestException(
+            return new BadRequest(
                     "Bad request "
             );
         }

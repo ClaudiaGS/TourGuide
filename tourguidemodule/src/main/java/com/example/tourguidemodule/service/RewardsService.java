@@ -44,7 +44,6 @@ public class RewardsService {
      * @return void
      */
     public void setProximityBuffer(int proximityBuffer) {
-        logger.info("Proximity buffer is "+proximityBuffer);
         this.proximityBuffer = proximityBuffer;
     }
     
@@ -55,8 +54,6 @@ public class RewardsService {
      * @return void
      */
     public void calculateRewards(User user) {
-        
-        logger.info("Calculating rewards for user " + user.getUserName());
         
         CopyOnWriteArrayList<VisitedLocationBean> userLocations = new CopyOnWriteArrayList<>();
         userLocations.addAll(user.getVisitedLocations());

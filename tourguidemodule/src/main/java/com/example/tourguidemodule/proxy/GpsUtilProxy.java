@@ -20,7 +20,7 @@ public interface GpsUtilProxy {
      * @see mgpsutil.controller
      */
     @GetMapping(value = "/getLocationGpsUtil")
-    VisitedLocationBean getLocation(@RequestParam("userId") String userId);
+    VisitedLocationBean getLocationGpsUtil(@RequestParam("userId") String userId);
     
     /**
      * @see mgpsutil.controller

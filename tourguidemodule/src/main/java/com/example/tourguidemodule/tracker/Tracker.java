@@ -17,7 +17,7 @@ public class Tracker extends Thread {
 	private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 	private final TourGuideService tourGuideService;
 	private boolean stop = false;
-
+	
 	public Tracker(TourGuideService tourGuideService) {
 		this.tourGuideService = tourGuideService;
 		

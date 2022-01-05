@@ -5,12 +5,15 @@ import com.example.tourguidemodule.beans.GpsUtilBean;
 import com.example.tourguidemodule.beans.VisitedLocationBean;
 import com.example.tourguidemodule.tracker.Tracker;
 import com.example.tourguidemodule.user.User;
+import com.example.tourguidemodule.user.UserPreferences;
 import com.example.tourguidemodule.user.UserReward;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -57,7 +60,6 @@ public class TourGuideService {
      * @return User
      */
     public User getUser(String userName) {
-        logger.info("Getting user with name "+userName);
         return helperService.internalUserMap.get(userName);
     }
     
@@ -67,7 +69,6 @@ public class TourGuideService {
      * @return List<User>
      */
     public List<User> getAllUsers() {
-        logger.info("Getting user list");
         return helperService.internalUserMap.values().stream().collect(Collectors.toList());
     }
     
@@ -78,7 +79,6 @@ public class TourGuideService {
      * @return User
      */
     public User addUser(User user) {
-        logger.info("Adding user "+ user.getUserName());
         boolean done = false;
         if (!helperService.internalUserMap.containsKey(user.getUserName())) {
             helperService.internalUserMap.put(user.getUserName(), user);
@@ -97,7 +97,6 @@ public class TourGuideService {
      * @return VisitedLocationBean
      */
     public VisitedLocationBean trackUserLocation(User user) {
-        logger.info("Tracking location for user "+user.getUserName());
         VisitedLocationBean visitedLocationBean = gpsUtilBean.getUserLocation(user.getUserId());
         user.addToVisitedLocations(visitedLocationBean);
         rewardsService.calculateRewards(user);
@@ -111,8 +110,42 @@ public class TourGuideService {
      * @return List<UserReward>
      */
     public List<UserReward> getUserRewards(User user) {
-        logger.info("Getting reward list for user "+user.getUserName());
         return user.getUserRewards();
+    }
+    
+    /**
+     * Update user preferences
+     *
+     * @param userName
+     * @param newPreferences
+     * @return UserPreferences
+     */
+    public UserPreferences modifyUserPreferences(String  userName,HashMap<String,String>newPreferences) {
+        
+        User user=helperService.internalUserMap.get(userName);
+        logger.info("user is "+user);
+        UserPreferences userPreferences=helperService.internalUserMap.get(userName).getUserPreferences();
+        for (Map.Entry<String, String> entry : newPreferences.entrySet()) {
+            switch (entry.getKey()) {
+                case "tripDuration":
+                    userPreferences.setTripDuration(Integer.parseInt(entry.getValue()));
+                    break;
+                case "numberOfAdults":
+                    userPreferences.setNumberOfAdults(Integer.parseInt(entry.getValue()));
+                    break;
+                case "numberOfChildren":
+                    userPreferences.setNumberOfChildren(Integer.parseInt(entry.getValue()));
+                    break;
+                case "ticketQuantity":
+                    userPreferences.setTicketQuantity(Integer.parseInt(entry.getValue()));
+                    break;
+                default:
+                    System.out.println("Trying to modify unexisting parameter");
+                    break;
+            }
+        }
+            user.setUserPreferences(userPreferences);
+        return userPreferences;
     }
     
     /**

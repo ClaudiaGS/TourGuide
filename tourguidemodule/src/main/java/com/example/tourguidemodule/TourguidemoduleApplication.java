@@ -20,17 +20,12 @@ public class TourguidemoduleApplication {
 	public GpsUtilBean getGpsUtil() {
 		return new GpsUtilBean();
 	}
-	
-//	@Bean
-//	public RewardsService getRewardsService() {
-//		return new RewardsService(getGpsUtil(), getRewardCentral());
-//	}
-	
+
 	@Bean
 	public RewardCentralBean getRewardCentral() {
 		return new RewardCentralBean();
 	}
-	
+
 	@Bean
 	public TripPricerBean getTripPricer() {
 		return new TripPricerBean();

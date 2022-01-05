@@ -52,7 +52,7 @@ public class TourGuideModuleController {
     @RequestMapping("/getLocation")
     public String getLocation(@RequestParam String userName) {
         logger.info("getting location for user " + userName);
-        return JsonStream.serialize(gpsUtilProxy.getLocation(tourGuideService.getUser(userName).getUserId().toString()));
+        return JsonStream.serialize(gpsUtilProxy.getLocationGpsUtil(tourGuideService.getUser(userName).getUserId().toString()));
     }
     
     /**

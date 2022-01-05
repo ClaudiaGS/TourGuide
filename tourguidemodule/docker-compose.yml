@@ -2,15 +2,21 @@ version: '1'
 services:
   mgpsutil:
     image: mgpsutil:latest
+    ports:
+      - 9001:9001
     networks:
       - tourguide-network
   mrewardcentral:
     image: mrewardcentral:latest
+    ports:
+      - 9002:9002
     networks:
       - tourguide-network
 
   mtrippricer:
     image: mtrippricer:latest
+    ports:
+      - 9003:9003
     networks:
       - tourguide-network
   tourguidemodule:

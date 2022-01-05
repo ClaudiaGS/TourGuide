@@ -69,7 +69,7 @@ public class TestTourGuideModuleController {
         String userName = "initialUser1";
         VisitedLocationBean visitedLocationBean = new VisitedLocationBean(userId, locationBean, date);
         User user = new User(userId, userName, "111", "initialUser1@email");
-        when(gpsUtilProxy.getLocation(userId.toString())).thenReturn(visitedLocationBean);
+        when(gpsUtilProxy.getLocationGpsUtil(userId.toString())).thenReturn(visitedLocationBean);
         when(tourGuideService.getUser(userName)).thenReturn(user);
         
         //assertion with controller method

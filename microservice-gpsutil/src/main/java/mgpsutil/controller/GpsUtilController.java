@@ -31,12 +31,12 @@ public class GpsUtilController {
      * @return VisitedLocation
      */
     @GetMapping("/getLocationGpsUtil")
-    public VisitedLocation getLocation(@RequestParam String userId) throws UUIDException {
+    public VisitedLocation getLocationGpsUtil(@RequestParam String userId) throws UUIDException {
         UUID userIdUuid = null;
         VisitedLocation visitedLocation=null;
         try {
             userIdUuid = UUID.fromString(userId);
-            visitedLocation = gpsUtilService.getLocation(userIdUuid);
+            visitedLocation = gpsUtilService.getLocationGpsUtil(userIdUuid);
         } catch (IllegalArgumentException e) {
             throw new UUIDException(userId);
         }

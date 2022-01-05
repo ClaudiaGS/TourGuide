@@ -1,4 +1,3 @@
 FROM openjdk:11
-WORKDIR /usr/app
-COPY . build/libs/mtrippricer-1.0.0.jar
-CMD ["java", "-jar", "mtrippricer-1.0.0.jar"]
+COPY build/libs/mtrippricer-1.0.0.jar /
+ENTRYPOINT ["java", "-jar", "mtrippricer-1.0.0.jar"]

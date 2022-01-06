@@ -122,7 +122,6 @@ public class TourGuideModuleController {
     @RequestMapping("/getRewards")
     public String getRewards(@RequestParam String userName) {
         User user = tourGuideService.getUser(userName);
-        logger.info("user in get rewards is " + user.getUserRewards());
         return JsonStream.serialize(tourGuideService.getUserRewards(user));
     }
     

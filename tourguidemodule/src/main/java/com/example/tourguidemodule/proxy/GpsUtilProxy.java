@@ -13,7 +13,7 @@ import java.util.UUID;
 /**
  * Declare the microservice-gpsutil endpoint
  */
-@FeignClient(name = "microservice-gpsutil", url = "localhost:9001")
+@FeignClient(name = "microservice-gpsutil", url = "mgpsutil:9001")
 public interface GpsUtilProxy {
     
     /**

@@ -10,4 +10,5 @@ public class FeignExceptionConfig {
     public CustomErrorDecoder mCustomErrorDecoder(){
         return new CustomErrorDecoder();
     }
+
 }

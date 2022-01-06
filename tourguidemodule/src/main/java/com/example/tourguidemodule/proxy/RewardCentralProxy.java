@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Declare the microservice-rewardcentral endpoint
  *
  */
-@FeignClient(name = "microservice-rewardcentral", url = "localhost:9002")
+@FeignClient(name = "microservice-rewardcentral", url = "mrewardcentral:9002")
 public interface RewardCentralProxy {
     
     /**

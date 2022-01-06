@@ -8,15 +8,14 @@ public class CustomErrorDecoder implements ErrorDecoder {
     private final ErrorDecoder defaultErrorDecoder = new Default();
 
     @Override
-    public Exception decode(String invoqueur, Response reponse) {
+    public Exception decode(String invoqueur, Response response) {
 
-        if(reponse.status() == 400 ) {
-            return new BadRequest(
-                    "Bad request "
-            );
+        if(response.status() == 400 ) {
+            return new BadRequest("Bad request");
         }
+        
 
-        return defaultErrorDecoder.decode(invoqueur, reponse);
+        return defaultErrorDecoder.decode(invoqueur, response);
     }
 
 }

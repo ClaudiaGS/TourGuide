@@ -1,35 +1,82 @@
-version: '1'
+version: '3.3'
+
 services:
+  tourguidemodule:
+    image: tourguidemodule:latest
+    container_name: tourguidemodule
+    ports:
+      - 8080:8080
+    networks:
+      - tourguide-network
+    depends_on:
+      - mgpsutil
+      - rewardcentral
+      - trippricer
+    restart: always
+
   mgpsutil:
     image: mgpsutil:latest
+    container_name: mgpsutil
     ports:
       - 9001:9001
     networks:
       - tourguide-network
+    restart: always
+
   mrewardcentral:
     image: mrewardcentral:latest
+    container_name: mrewardcentral
     ports:
       - 9002:9002
     networks:
       - tourguide-network
+    restart: always
 
   mtrippricer:
     image: mtrippricer:latest
+    container_name: mtrippricer
     ports:
       - 9003:9003
     networks:
       - tourguide-network
-  tourguidemodule:
-    image: tourguidemodule:latest
-    ports:
-      - 8080:8080
-    depends_on:
-        - mgpsutil
-        - mrewardcentral
-        - mtrippricer
-    networks:
-      - tourguide-network
+    restart: always
 
 networks:
   tourguide-network:
     driver: bridge
+
+#version: '1'
+#services:
+#  mgpsutil:
+#    image: mgpsutil:latest
+#    ports:
+#      - 9001:9001
+#    networks:
+#      - tourguide-network
+#  mrewardcentral:
+#    image: mrewardcentral:latest
+#    ports:
+#      - 9002:9002
+#    networks:
+#      - tourguide-network
+#
+#  mtrippricer:
+#    image: mtrippricer:latest
+#    ports:
+#      - 9003:9003
+#    networks:
+#      - tourguide-network
+#  tourguidemodule:
+#    image: tourguidemodule:latest
+#    ports:
+#      - 8080:8080
+#    depends_on:
+#        - mgpsutil
+#        - mrewardcentral
+#        - mtrippricer
+#    networks:
+#      - tourguide-network
+#
+#networks:
+#  tourguide-network:
+#    driver: bridge

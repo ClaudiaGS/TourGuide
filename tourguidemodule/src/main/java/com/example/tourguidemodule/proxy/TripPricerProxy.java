@@ -12,7 +12,7 @@ import java.util.List;
  * Declare the microservice-trippricer endpoint
  *
  */
-@FeignClient(name = "microservice-trippricer", url = "localhost:9003")
+@FeignClient(name = "microservice-trippricer", url = "mtrippricer:9003")
 public interface TripPricerProxy {
     
     /**
